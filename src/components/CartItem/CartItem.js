@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Product.css';
+const CartItem = (props) => {
 
-const Product = (props) => {
-    // console.log(props.product);
-    const { img, name, seller, price, stock, key } = props.product
+    const { img, name, seller, price, stock, key, quantity } = props.product
+
+
+
     return (
         <div className="product">
             <div className="product-image">
@@ -12,15 +13,16 @@ const Product = (props) => {
             </div>
             <div className="product-details">
                 <h3 className='name' ><Link to={"/product/" + key}>{name}</Link></h3>
+                <h3>Quantity: {quantity}</h3>
                 <p><small>by: {seller}</small></p>
                 <br />
                 <p>${price}</p>
                 <p><small>only {stock} left in stock - order soon</small></p>
-                {props.addToCardButton && <button className="card-button" onClick={() => props.handleAddProduct(props.product)}><i className="fas fa-shopping-cart"></i> add to card</button>}
+                <button className="card-button">Remove Item</button>
 
             </div>
         </div >
     );
 };
 
-export default Product;
+export default CartItem;
