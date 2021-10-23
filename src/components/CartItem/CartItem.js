@@ -18,7 +18,7 @@ const CartItem = (props) => {
                 <br />
                 <p>${price}</p>
                 <p><small>only {stock} left in stock - order soon</small></p>
-                <button className="card-button">Remove Item</button>
+                <button className="card-button" onClick={() => { props.removeProduct(key) }} >Remove Item</button>
 
             </div>
         </div >
